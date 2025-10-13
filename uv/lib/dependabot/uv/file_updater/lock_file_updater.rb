@@ -216,6 +216,12 @@ module Dependabot
           handle_uv_error(e)
         end
 
+        sig do
+          params(
+            error: SharedHelpers::HelperSubprocessFailed
+          )
+            .returns(T.noreturn)
+        end
         def handle_uv_error(error)
           error_message = error.message
 
